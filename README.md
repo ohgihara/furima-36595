@@ -1,24 +1,64 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| e-mail             | string | null: false |
+| encrypted_password | string | null: false |
+| date_of_birth      | text   | null: false |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :items
+- has_many :items_log
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## items テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column       | Type       | Options     |
+| ------       | ---------- | ----------- |
+| items_name   | text       | null: false |
+| image        | references | null: false |
+| overview     | references | null: false |
+| category     | text       | null: false |
+| quality      | references | null: false |
+| delivery_fee | references | null: false |
+| quality      | references | null: false |
+| delivery_fee | references | null: false |
 
-* Deployment instructions
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :prototypes
+
+
+
+## items_log テーブル
+
+| Column     | Type       | Options     |
+| ---------- | ---------- | ----------- |
+|            |            |             |
+
+### Association
+
+- belongs_to :users
+- belongs_to :items
+- has_one :adress
+
+
+
+## adress テーブル
+
+| Column     | Type       | Options     |
+| ---------- | ---------- | ----------- |
+| adress     |            | null: false |
+
+### Association
+
+- has_many :comments
+- belongs_to :user
