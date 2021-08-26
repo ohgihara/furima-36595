@@ -8,6 +8,7 @@
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
+| nick_name          | string | null: false               |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 | date_of_birth      | date   | null: false               |
@@ -22,14 +23,16 @@
 
 ## items テーブル
 
-| Column       | Type       | Options     |
-| ------       | ---------- | ----------- |
-| items_name   | string     | null: false |
-| overview     | references | null: false |
-| category     | text       | null: false |
-| quality      | references | null: false |
-| delivery_fee | references | null: false |
-| quality      | references | null: false |
+| Column          | Type       | Options     |
+| ------          | ---------- | ----------- |
+| items_name      | string     | null: false |
+| overview        | references | null: false |
+| price           | integer    | null: false |
+| category_id     | integer    | null: false |
+| quality_id      | integer    | null: false |
+| delivery_fee_id | integer    | null: false |
+| until_date_id   | integer    | null: false |
+| shipment_id     | integer    | null: false |
 
 
 
@@ -63,6 +66,8 @@
 | prefectures      | string     | null: false |
 | municipalities   | string     | null: false |
 | address          | integer    | null: false |
-| Building name    | string     | null: false |
+| Building name    | string     |             |
 | telephone number | integer    | null: false |
+| item_log         | references | null: false, foreign_key: true |
+
 

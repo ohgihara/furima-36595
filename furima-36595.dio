@@ -11,10 +11,10 @@
                     <mxGeometry y="26" width="160" height="74" as="geometry"/>
                 </mxCell>
                 <mxCell id="108" value="adressテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="300" y="640" width="290" height="216" as="geometry"/>
+                    <mxGeometry x="300" y="640" width="290" height="250" as="geometry"/>
                 </mxCell>
-                <mxCell id="109" value="postal_cord &#10;&#10;prefectures&#10;&#10;municipalities &#10;&#10;address &#10;&#10;Building name &#10;&#10;telephone number " style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="108">
-                    <mxGeometry y="26" width="290" height="190" as="geometry"/>
+                <mxCell id="109" value="postal_cord &#10;&#10;prefectures&#10;&#10;municipalities &#10;&#10;address &#10;&#10;Building name &#10;&#10;telephone number&#10;&#10;item_log " style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="108">
+                    <mxGeometry y="26" width="290" height="224" as="geometry"/>
                 </mxCell>
                 <mxCell id="116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
                     <mxGeometry relative="1" as="geometry">
@@ -23,16 +23,16 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="120" value="usersテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="120" y="140" width="210" height="250" as="geometry"/>
+                    <mxGeometry x="120" y="140" width="210" height="260" as="geometry"/>
                 </mxCell>
-                <mxCell id="121" value="last_name &#10;&#10;first_name &#10;&#10;last_name_kana &#10;&#10;first_name_kana &#10;&#10;email &#10;&#10;encrypted_password&#10; &#10;date_of_birth" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="120">
-                    <mxGeometry y="26" width="210" height="224" as="geometry"/>
+                <mxCell id="121" value="last_name &#10;&#10;first_name &#10;&#10;last_name_kana &#10;&#10;first_name_kana &#10;&#10;nick_name &#10;&#10;email &#10;&#10;encrypted_password&#10; &#10;date_of_birth" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="120">
+                    <mxGeometry y="26" width="210" height="234" as="geometry"/>
                 </mxCell>
                 <mxCell id="126" value="itemsテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="510" y="140" width="220" height="210" as="geometry"/>
+                    <mxGeometry x="510" y="140" width="220" height="280" as="geometry"/>
                 </mxCell>
-                <mxCell id="127" value=" items_name&#10; &#10;overview&#10; &#10;category &#10;&#10;quality &#10;&#10;delivery_fee&#10;&#10;quality &#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="126">
-                    <mxGeometry y="26" width="220" height="184" as="geometry"/>
+                <mxCell id="127" value=" items_name&#10;&#10;price&#10; &#10;overview&#10; &#10;category _id&#10;&#10;quality _id&#10;&#10;delivery_fee_id&#10;&#10;until_date_id&#10;&#10;shipment_id&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="126">
+                    <mxGeometry y="26" width="220" height="254" as="geometry"/>
                 </mxCell>
                 <mxCell id="144" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;verticalAlign=bottom;" edge="1" parent="1" source="121">
                     <mxGeometry relative="1" as="geometry">
