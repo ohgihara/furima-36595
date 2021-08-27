@@ -17,7 +17,7 @@
 ### Association
 
 - has_many :items
-- has_many :items_log
+- has_many :items_logs
 
 
 
@@ -26,14 +26,14 @@
 | Column          | Type       | Options     |
 | ------          | ---------- | ----------- |
 | items_name      | string     | null: false |
-| overview        | references | null: false |
+| overview        | text       | null: false |
 | price           | integer    | null: false |
 | category_id     | integer    | null: false |
 | quality_id      | integer    | null: false |
 | delivery_fee_id | integer    | null: false |
 | until_date_id   | integer    | null: false |
 | shipment_id     | integer    | null: false |
-
+| user            | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -58,16 +58,20 @@
 
 
 
-## address テーブル
+## addresses テーブル
 
 | Column           | Type       | Options     |
 | ----------       | ---------- | ----------- |
 | postal_cord      | string     | null: false |
-| prefectures      | string     | null: false |
+| prefecture       | integer    | null: false |
 | municipalities   | string     | null: false |
-| address          | integer    | null: false |
-| Building name    | string     |             |
-| telephone number | integer    | null: false |
+| address          | string     | null: false |
+| building name    | string     |             |
+| telephone number | string     | null: false |
 | item_log         | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :items log
 
 
