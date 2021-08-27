@@ -25,14 +25,14 @@
 
 | Column          | Type       | Options     |
 | ------          | ---------- | ----------- |
-| items_name      | string     | null: false |
+| item_name       | string     | null: false |
 | overview        | text       | null: false |
 | price           | integer    | null: false |
 | category_id     | integer    | null: false |
 | quality_id      | integer    | null: false |
 | delivery_fee_id | integer    | null: false |
 | until_date_id   | integer    | null: false |
-| shipment_id     | integer    | null: false |
+| prefecture_id   | integer    | null: false |
 | user            | references | null: false, foreign_key: true |
 
 
@@ -42,7 +42,7 @@
 - has_one :items_log
 
 
-## items_log テーブル
+## item_logs テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | -----------                    |
@@ -62,16 +62,16 @@
 
 | Column           | Type       | Options     |
 | ----------       | ---------- | ----------- |
-| postal_cord      | string     | null: false |
-| prefecture       | integer    | null: false |
-| municipalities   | string     | null: false |
+| postal_code      | string     | null: false |
+| prefecture_id    | integer    | null: false |
+| municipality     | string     | null: false |
 | address          | string     | null: false |
-| building name    | string     |             |
-| telephone number | string     | null: false |
+| building_name    | string     |             |
+| telephone_number | string     | null: false |
 | item_log         | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :items log
+- belongs_to :item_log
 
 
