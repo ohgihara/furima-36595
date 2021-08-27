@@ -17,7 +17,7 @@
 ### Association
 
 - has_many :items
-- has_many :items_logs
+- has_many :item_logs
 
 
 
@@ -39,7 +39,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :items_log
+- has_one :item_log
 
 
 ## item_logs テーブル
