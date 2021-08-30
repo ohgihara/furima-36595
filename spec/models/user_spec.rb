@@ -91,10 +91,10 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('First name kana 全角カタカナのみで入力して下さい')
     end
-    it 'passwordが英・小文字・数字それぞれ１文字以上含まないと登録できない' do
+    it 'passwordが英・小文字・数字のみ、合計６文字以上含まないと登録できない' do
       @user.password = 'かかかかかかか'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Password は半角6~12文字英・小文字・数字それぞれ１文字以上含む必要があります')
+      expect(@user.errors.full_messages).to include('Password は半角6字以上、英・小文字・数字のみの必要があります')
     end
   end
 end
