@@ -27,8 +27,8 @@ class User < ApplicationRecord
                                 message: '全角カタカナのみで入力して下さい'
                               }
 
-  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates :password, presence: true,
                        format: { with: VALID_PASSWORD_REGEX,
-                                 message: 'は半角6字以上、英・小文字・数字のみの必要があります' }
+                                 message: 'は半角6字以上、英・小文字・数字のみを一字以上入れる必要があります' }
 end
