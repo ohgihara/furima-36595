@@ -68,7 +68,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Price 価格設定は300円~9,999,999円以内です。')
       end
       it 'priceが300円~9,999,999円でなければ保存できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price 価格設定は300円~9,999,999円以内です。')
       end
