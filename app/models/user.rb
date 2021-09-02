@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # has_many :items
-  # has_many :item_logs
+  has_many :items
+  has_many :item_logs
 
   validates :nick_name, presence: true
   validates :date_of_birth, presence: true
@@ -27,7 +27,7 @@ class User < ApplicationRecord
                                 message: '全角カタカナのみで入力して下さい'
                               }
 
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, presence: true,
                        format: { with: VALID_PASSWORD_REGEX,
                                  message: 'は半角6字以上、英・小文字・数字のみを一字以上入れる必要があります' }
