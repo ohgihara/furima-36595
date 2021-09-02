@@ -67,6 +67,16 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price 価格設定は300円~9,999,999円以内です。')
       end
+      it 'priceが300円~9,999,999円でなければ保存できない' do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price 価格設定は300円~9,999,999円以内です。')
+      end
+      it 'userが紐づいていなければ保存できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
+      end
     end
   end
 end
