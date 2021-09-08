@@ -1,12 +1,20 @@
 require 'rails_helper'
+
 RSpec.describe PurchaseForm, type: :model do
   before do
-    @purchase_form = FactoryBot.build(:purchase_form)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @purchase_form = FactoryBot.build(:purchase_form, user_id: user.id, item_id: item.id)
+    sleep 0.1
   end
 
   describe '商品購入' do
     context '商品購入ができる時' do
       it 'postal_code,prefecture_id,municipality,address,building_name,telephone_number,tokenが存在すれば登録できる' do
+        expect(@purchase_form).to be_valid
+      end
+      it 'building_nameのみ空でも登録できる' do
+        @purchase_form.building_name = ''
         expect(@purchase_form).to be_valid
       end
     end
@@ -45,12 +53,32 @@ RSpec.describe PurchaseForm, type: :model do
       it 'telephone_numberが10桁以上11桁以内の半角数値のみでないと登録できない' do
         @purchase_form.telephone_number = '７７７７4445633'
         @purchase_form.valid?
-        expect(@purchase_form.errors.full_messages).to include("Telephone number 10桁の半角数字で入力してください。")
+        expect(@purchase_form.errors.full_messages).to include("Telephone number 10桁or11桁の半角数字で入力してください。")
       end
       it "tokenが空では登録できないこと" do
         @purchase_form.token = nil
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include("Token can't be blank")
+      end
+      it "user_idが空では登録できないこと" do
+        @purchase_form.user_id = nil
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("User can't be blank")
+      end
+      it "item_idが空では登録できないこと" do
+        @purchase_form.item_id = nil
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'telephone_numberが9桁以下では登録できない' do
+        @purchase_form.telephone_number = '88888888'
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Telephone number 10桁or11桁の半角数字で入力してください。")
+      end
+      it 'telephone_numberが12桁以上では登録できない' do
+        @purchase_form.telephone_number = '8888888888888'
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Telephone number 10桁or11桁の半角数字で入力してください。")
       end
     end
   end

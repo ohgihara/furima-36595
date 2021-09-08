@@ -7,8 +7,10 @@ class PurchaseForm
   validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフン込みの7桁半角数字で入力してください。"}
   validates :municipality
   validates :address
-  validates :telephone_number, format: {with: /\A\d{10}\z/, message: "10桁の半角数字で入力してください。"}
+  validates :telephone_number, format: {with: /\A\d{10,11}\z/, message: "10桁or11桁の半角数字で入力してください。"}
   validates :token
+  validates :user_id
+  validates :item_id
  end
  validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
 
