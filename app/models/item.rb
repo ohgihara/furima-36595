@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   belongs_to :quality
   belongs_to :until_date
   belongs_to :user
+  has_one :item_log
+
 
   has_one_attached :image
 
