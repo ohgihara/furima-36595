@@ -75,3 +75,4 @@
 - belongs_to :item_log
 
 
+
