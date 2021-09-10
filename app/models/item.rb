@@ -11,6 +11,15 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
+  def self.search(search)
+    if search != ""
+      Item.where('item_name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
+
   validates :item_name, presence: true
   validates :overview, presence: true
   validates :image, presence: true

@@ -1,0 +1,47 @@
+<%= link_to image_tag("furima-logo-color.png", class:"furima-icon2"), "/" %>
+<%= form_with(url: search_items_path, local: true, method: :get, class: "search-form2") do |form| %>
+  <%= form.text_field :keyword, placeholder: "商品を検索する", class: "search-input2" %>
+  <%= form.submit "検索", class: "search-btn2" %>
+<% end %>
+<div class='item-contents'>
+    <h2 class='title'>ヒットした商品</h2>
+    <div class="subtitle" >
+      新規投稿商品
+    </div>
+    <ul class='item-lists'>
+
+    <% if @items.empty? %>
+       <div class="subtitle" >
+         ※お探しの商品は見つかりませんでした。
+       </div>  
+     <% else %>
+    <% @items.each do |item| %>
+      <li class='list'>
+        <%= link_to item_path(item) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>
+
+          <% if item.item_log != nil %>
+          <div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+          <% end %>
+
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.item_name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.delivery_fee.name %></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+   <% end %>
+</div>
